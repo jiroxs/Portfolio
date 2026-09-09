@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Jirow's World</title>
+<!-- Primary Meta Tags -->
+<title>Jirow's World — Portfolio</title>
+<meta name="title" content="Jiro's Portfolio">
+<meta name="description" content="Full‑stack developer building modern, fast, and beautifully animated web applications.">
+
+<!-- Open Graph / Facebook / Discord -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="[jirowsworld.site](https://jirowsworld.site/)">
+<meta property="og:title" content="Jirow's World — Portfolio">
+<meta property="og:description" content="Full‑stack developer building modern, fast, and beautifully animated web applications.">
+<meta property="og:image" content="[jirowsworld.site](https://jirowsworld.site/preview.png)">
+
+
+
+<!-- FONT AWESOME -->
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<!-- GOOGLE FONT -->
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+/* =========================================
+   ROOT
+========================================= */
+:root{
+  --blue:#4fc3ff;
+  --bg:#020407;
+  --card:#091018;
+  --text:#eaf6ff;
+  --muted:#9eb7c8;
+
+  --glow:
+    0 0 10px rgba(79,195,255,.7),
+    0 0 30px rgba(79,195,255,.45),
+    0 0 60px rgba(79,195,255,.2);
+}
+
+/* =========================================
+   RESET
+========================================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-track{
+  background:#03070d;
+}
+
+::-webkit-scrollbar-thumb{
+  background:var(--blue);
+  border-radius:999px;
+}
+
+/* =========================================
+   PARTICLES
+========================================= */
+#particles{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:-10;
+  pointer-events:none;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:20px 8%;
+
+  z-index:999;
+
+  transition:.35s ease;
+
+  backdrop-filter:blur(10px);
+}
+
+header.scrolled{
+  background:rgba(2,8,14,.85);
+
+  border-bottom:
+    1px solid rgba(79,195,255,.12);
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.35);
+
+  padding:15px 8%;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+.logo{
+  font-size:2rem;
+  font-weight:700;
+
+  color:var(--blue);
+
+  text-shadow:var(--glow);
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+nav{
+  display:flex;
+  align-items:center;
+  gap:35px;
+}
+
+nav a{
+  position:relative;
+
+  text-decoration:none;
+  color:var(--text);
+
+  transition:.3s;
+}
+
+nav a::after{
+  content:"";
+
+  position:absolute;
+  left:0;
+  bottom:-8px;
+
+  width:0%;
+  height:2px;
+
+  background:var(--blue);
+
+  transition:.3s;
+}
+
+nav a:hover,
+nav a.active{
+  color:var(--blue);
+  text-shadow:var(--glow);
+}
+
+nav a:hover::after,
+nav a.active::after{
+  width:100%;
+}
+
+/* =========================================
+   MENU BUTTON
+========================================= */
+.menu-btn{
+  display:none;
+
+  width:42px;
+  height:42px;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  background:
+    rgba(79,195,255,.08);
+
+  border:
+    1px solid rgba(79,195,255,.15);
+
+  z-index:1000;
+}
+
+.menu-btn i{
+  color:var(--blue);
+  font-size:1.2rem;
+}
+
+/* =========================================
+   DESKTOP SOCIALS
+========================================= */
+.social-bar{
+  position:fixed;
+
+  left:35px;
+  top:50%;
+
+  transform:translateY(-50%);
+
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+
+  z-index:100;
+}
+
+.social-bar::after{
+  content:"";
+
+  width:2px;
+  height:120px;
+
+  background:
+    rgba(79,195,255,.3);
+
+  margin:auto;
+}
+
+.social-bar a{
+  color:var(--muted);
+  font-size:1.4rem;
+
+  transition:.3s;
+}
+
+.social-bar a:hover{
+  color:var(--blue);
+
+  transform:translateY(-4px);
+
+  text-shadow:var(--glow);
+}
+
+/* =========================================
+   MOBILE SOCIALS
+========================================= */
+.mobile-socials{
+  position:fixed;
+
+  left:50%;
+  bottom:18px;
+
+  transform:translateX(-50%);
+
+  display:none;
+  align-items:center;
+  justify-content:center;
+
+  gap:25px;
+
+  padding:14px 24px;
+
+  border-radius:999px;
+
+  background:
+    rgba(3,10,18,.92);
+
+  border:
+    1px solid rgba(79,195,255,.2);
+
+  backdrop-filter:blur(18px);
+
+  box-shadow:
+    0 0 25px rgba(79,195,255,.08);
+
+  z-index:999;
+}
+
+.mobile-socials a{
+  width:42px;
+  height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  color:var(--text);
+
+  transition:.25s ease;
+}
+
+.mobile-socials a:hover{
+  color:var(--blue);
+
+  background:
+    rgba(79,195,255,.08);
+}
+
+.mobile-socials i{
+  font-size:1.15rem;
+}
+
+/* =========================================
+   HERO
+========================================= */
+#home{
+  min-height:100vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  padding:120px 20px 100px;
+
+  position:relative;
+}
+
+.glow{
+  position:absolute;
+
+  width:700px;
+  height:700px;
+
+  background:
+    radial-gradient(circle,
+    rgba(79,195,255,.25),
+    transparent 70%);
+
+  filter:blur(100px);
+
+  z-index:-1;
+
+  animation:pulse 5s infinite alternate;
+}
+
+.hero{
+  max-width:950px;
+}
+
+.tag{
+  display:inline-block;
+
+  padding:10px 22px;
+
+  border-radius:999px;
+
+  background:
+    rgba(79,195,255,.08);
+
+  border:
+    1px solid rgba(79,195,255,.2);
+
+  color:var(--blue);
+
+  margin-bottom:28px;
+
+  animation:fadeUp 1s ease;
+}
+
+.hero h1{
+  font-size:clamp(3rem,8vw,6rem);
+
+  line-height:1.1;
+
+  animation:fadeUp 1.2s ease;
+}
+
+.hero h1 span{
+  color:var(--blue);
+  text-shadow:var(--glow);
+}
+
+.hero h3{
+  margin-top:18px;
+
+  font-size:clamp(1.2rem,3vw,2rem);
+
+  color:var(--blue);
+
+  animation:fadeUp 1.4s ease;
+}
+
+.hero p{
+  max-width:700px;
+
+  margin:30px auto 0;
+
+  line-height:1.9;
+
+  color:var(--muted);
+
+  animation:fadeUp 1.6s ease;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+.hero-buttons{
+  margin-top:45px;
+
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+
+  animation:fadeUp 1.8s ease;
+}
+.hero-buttons a{
+  text-decoration:none;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.btn{
+  padding:15px 36px;
+
+  border:none;
+  cursor:pointer;
+
+  border-radius:999px;
+
+  font-size:1rem;
+
+  transition:.35s;
+}
+
+.btn-primary{
+  background:var(--blue);
+  color:black;
+
+  box-shadow:var(--glow);
+}
+
+.btn-primary:hover{
+  transform:translateY(-5px);
+}
+
+.btn-outline{
+  background:transparent;
+
+  border:1px solid var(--blue);
+
+  color:var(--blue);
+}
+
+.btn-outline:hover{
+  background:var(--blue);
+  color:black;
+
+  box-shadow:var(--glow);
+}
+
+/* =========================================
+   STATS
+========================================= */
+.stats{
+  margin-top:80px;
+
+  display:flex;
+  justify-content:center;
+  gap:80px;
+
+  flex-wrap:wrap;
+}
+
+.stat h2{
+  font-size:3rem;
+
+  color:var(--blue);
+
+  text-shadow:var(--glow);
+}
+
+.stat p{
+  margin-top:8px;
+  color:var(--muted);
+}
+
+/* =========================================
+   SECTIONS
+========================================= */
+section{
+  padding:120px 10%;
+}
+
+.section-title{
+  text-align:center;
+
+  font-size:3rem;
+
+  margin-bottom:60px;
+
+  color:var(--blue);
+
+  text-shadow:var(--glow);
+}
+
+/* =========================================
+   CARDS
+========================================= */
+.grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(270px,1fr));
+
+  gap:25px;
+}
+
+.card{
+  background:
+    rgba(255,255,255,.03);
+
+  border:
+    1px solid rgba(255,255,255,.05);
+
+  border-radius:24px;
+
+  padding:35px;
+
+  transition:.35s;
+
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card:hover{
+  transform:translateY(-8px);
+
+  border-color:
+    rgba(79,195,255,.25);
+
+  box-shadow:
+    0 0 40px rgba(79,195,255,.1);
+}
+
+.card i{
+  font-size:2rem;
+
+  color:var(--blue);
+
+  margin-bottom:20px;
+}
+
+.card h3{
+  margin-bottom:15px;
+}
+
+.card p{
+  color:var(--muted);
+
+  line-height:1.8;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+footer{
+  padding:40px 20px;
+
+  text-align:center;
+
+  color:var(--muted);
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes pulse{
+  from{
+    transform:scale(.9);
+  }
+
+  to{
+    transform:scale(1.1);
+  }
+}
+
+/* =========================================
+   SKILLS SECTION
+========================================= */
+#skills{
+  padding:120px 8%;
+  position:relative;
+}
+
+/* TITLE */
+.skills-title{
+  text-align:center;
+  font-size:3rem;
+  margin-bottom:70px;
+  font-weight:700;
+  color:white;
+}
+
+.skills-title span{
+  color:var(--blue);
+  text-shadow:var(--glow);
+}
+
+/* CONTAINER */
+.skills-container{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+
+/* BOX */
+.skill-box{
+  background:rgba(0,0,0,.22);
+
+  border:
+    1px solid rgba(79,195,255,.12);
+
+  border-radius:18px;
+
+  padding:30px;
+
+  transition:.35s ease;
+
+  backdrop-filter:blur(10px);
+}
+
+.skill-box:hover{
+  border-color:
+    rgba(79,195,255,.3);
+
+  box-shadow:
+    0 0 30px rgba(79,195,255,.08);
+
+  transform:translateY(-4px);
+}
+
+/* HEADER */
+.skill-header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  margin-bottom:28px;
+}
+
+.skill-header i{
+  width:34px;
+  height:34px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:10px;
+
+  background:
+    rgba(79,195,255,.08);
+
+  color:var(--blue);
+
+  font-size:.95rem;
+}
+
+.skill-header h3{
+  color:var(--blue);
+  font-size:1.15rem;
+  font-weight:600;
+}
+
+/* TAGS */
+.skill-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.skill-tags span{
+  padding:10px 14px;
+
+  border-radius:8px;
+
+  background:
+    rgba(255,255,255,.02);
+
+  border:
+    1px solid rgba(79,195,255,.12);
+
+  color:#dff5ff;
+
+  font-size:.78rem;
+
+  transition:.25s ease;
+}
+
+.skill-tags span:hover{
+  border-color:
+    rgba(79,195,255,.4);
+
+  color:var(--blue);
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 0 15px rgba(79,195,255,.08);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+@media(max-width:768px){
+
+  #skills{
+    padding:100px 5%;
+  }
+
+  .skills-title{
+    font-size:2.2rem;
+    margin-bottom:50px;
+  }
+
+  .skill-box{
+    padding:24px;
+  }
+
+  .skill-header h3{
+    font-size:1rem;
+  }
+
+  .skill-tags{
+    gap:8px;
+  }
+
+  .skill-tags span{
+    font-size:.72rem;
+    padding:8px 12px;
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+@media(max-width:900px){
+
+  html,
+  body{
+    overflow-x:hidden;
+    width:100%;
+  }
+
+  /* HEADER */
+  header{
+    padding:18px 6%;
+  }
+
+  header.scrolled{
+    padding:14px 6%;
+  }
+
+  /* NAVBAR */
+  nav{
+    position:fixed;
+
+    top:0;
+    right:-100%;
+
+    width:260px;
+    height:100vh;
+
+    background:
+      rgba(2,8,14,.98);
+
+    backdrop-filter:blur(18px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:35px;
+
+    transition:right .35s ease;
+
+    z-index:998;
+
+    border-left:
+      1px solid rgba(79,195,255,.15);
+  }
+
+  nav.active{
+    right:0;
+  }
+
+  /* MENU BTN */
+  .menu-btn{
+    display:flex;
+  }
+
+  /* HIDE DESKTOP SOCIALS */
+  .social-bar{
+    display:none;
+  }
+
+  /* SHOW MOBILE SOCIALS */
+  .mobile-socials{
+    display:flex;
+  }
+
+  /* HERO */
+  #home{
+    padding:
+      120px 20px 140px;
+  }
+
+  .hero h1{
+    font-size:3rem;
+  }
+
+  .hero p{
+    font-size:.95rem;
+  }
+
+  .btn{
+    width:100%;
+    max-width:260px;
+  }
+
+  .stats{
+    gap:35px;
+  }
+
+  .stat{
+    width:100%;
+  }
+
+  .stat h2{
+    font-size:2.2rem;
+  }
+
+  section{
+    padding:100px 6%;
+  }
+
+  .section-title{
+    font-size:2.2rem;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:28px;
+  }
+
+  #particles{
+    opacity:.7;
+  }
+}
+
+.card textarea {
+  width: 100%;
+  height: 120px;
+
+  margin-top: 15px;
+  padding: 12px 16px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(79,195,255,0.15);
+  border-radius: 12px;
+
+  color: var(--muted);
+  font-family: inherit;
+  font-size: .9rem;
+  line-height: 2;
+
+  resize: none;
+}
+
+.card textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: var(--glow);
+}
+
+.card .card-btn {
+  display: inline-block;
+  margin-top: 18px;
+
+  padding: 12px 22px;
+  border-radius: 12px;
+
+  background: rgba(79,195,255,.1);
+  border: 1px solid rgba(79,195,255,.25);
+
+  color: var(--blue);
+  font-size: .9rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .3s ease;
+
+  backdrop-filter: blur(8px);
+}
+
+.card .card-btn:hover {
+  background: var(--blue);
+  color: black;
+  box-shadow: var(--glow);
+  transform: translateY(-4px);
+}
+
+.accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accordion-item {
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(79,195,255,.12);
+  border-radius: 14px;
+  padding: 22px 26px;
+  transition: .35s ease;
+}
+
+.accordion-item:hover {
+  border-color: rgba(79,195,255,.25);
+  box-shadow: 0 0 25px rgba(79,195,255,.08);
+}
+
+/* HEADER */
+.accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: var(--text);
+  font-size: 1.15rem;        /* Bigger */
+  font-weight: 600;
+  padding: 0;
+}
+
+.accordion-header i {
+  color: var(--blue);
+  font-size: 1.1rem;         /* Bigger arrow */
+  transition: transform .35s ease;
+}
+
+/* BODY */
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+  margin-top: 0;
+}
+
+.accordion-body p {
+  color: var(--muted);
+  padding-top: 14px;
+  line-height: 1.7;
+  font-size: 1rem;            /* Bigger text */
+}
+
+/* OPEN STATE */
+.accordion-item.active .accordion-body {
+  max-height: 300px;
+}
+
+.accordion-item.active i {
+  transform: rotate(180deg);
+}
+
+.faqs .accordion-item {
+  width: 100%;
+}
+
+.faqs {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- =========================================
+     HEADER
+========================================= -->
+<header id="header">
+
+  <div class="logo">Jiro's World</div>
+
+  <nav id="nav">
+
+    <a href="#home" class="active">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#contact">Contact</a>
+
+  </nav>
+
+  <div class="menu-btn" id="menuBtn">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+</header>
+
+<!-- =========================================
+     DESKTOP SOCIALS
+========================================= -->
+<div class="social-bar">
+
+  <a href="https://github.com/jiroxs" target="_blank">
+    <i class="fa-brands fa-github"></i>
+  </a>
+
+  <a href="#">
+    <i class="fa-brands fa-linkedin"></i>
+  </a>
+
+  <a href="mailto:jirowz.dev@proton.me">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+
+</div>
+
+<!-- =========================================
+     MOBILE SOCIALS
+========================================= -->
+<div class="mobile-socials">
+
+  <a href="#">
+    <i class="fa-brands fa-github"></i>
+  </a>
+
+  <a href="#">
+    <i class="fa-brands fa-linkedin"></i>
+  </a>
+
+  <a href="#">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+
+</div>
+
+<!-- =========================================
+     HERO
+========================================= -->
+<section id="home">
+
+  <div class="glow"></div>
+
+  <div class="hero">
+
+    <div class="tag">
+      WELCOME TO MY PORTFOLIO
+    </div>
+
+    <h1>
+      Hi, I'm <span>Jirowz</span>
+    </h1>
+
+    <h3 id="typing"></h3>
+
+    <p>
+      I build modern, fast and scalable web applications
+      with clean UI engineering and smooth user experiences.
+    </p>
+
+    <div class="hero-buttons">
+
+    <a
+        href="#contact"
+        class="btn btn-primary"
+    >
+        Hire Me
+    </a>
+
+    <a
+        href="#projects"
+        class="btn btn-outline"
+    >
+        View Projects
+    </a>
+
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <h2>4+</h2>
+        <p>Projects Completed</p>
+      </div>
+
+      <div class="stat">
+        <h2>2+</h2>
+        <p>Years Experience</p>
+      </div>
+
+      <div class="stat">
+        <h2>98%</h2>
+        <p>Client Satisfaction</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     SKILLS SECTION
+========================================= -->
+<section id="skills">
+
+  <h2 class="skills-title">
+    My <span>Skillset</span>
+  </h2>
+
+  <div class="skills-container">
+
+    <!-- CARD -->
+    <div class="skill-box">
+
+      <div class="skill-header">
+        <i class="fa-solid fa-code"></i>
+        <h3>Languages & Frameworks</h3>
+      </div>
+
+      <div class="skill-tags">
+        <span>JavaScript</span>
+        <span>TypeScript</span>
+        <span>PHP</span>
+        <span>Python</span>
+        <span>Node.js</span>
+        <span>LUA</span>
+        <span>LUAU</span>
+        <span>Express.js</span>
+        <span>React.js</span>
+        <span>Codeigniter</span>
+        <span>Laravel</span>
+        <span>Cake.php</span>
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="skill-box">
+
+      <div class="skill-header">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <h3>UI & Animation Libraries</h3>
+      </div>
+
+      <div class="skill-tags">
+        <span>Tailwind CSS</span>
+        <span>Material UI</span>
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="skill-box">
+
+      <div class="skill-header">
+        <i class="fa-solid fa-cloud"></i>
+        <h3>DevOps & Cloud</h3>
+      </div>
+
+      <div class="skill-tags">
+        <span>Docker</span>
+        <span>Nginx</span>
+        <span>AWS EC2</span>
+        <span>Cloudflare</span>
+        <span>GitHub Actions</span>
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="skill-box">
+
+      <div class="skill-header">
+        <i class="fa-solid fa-database"></i>
+        <h3>Databases</h3>
+      </div>
+
+      <div class="skill-tags">
+        <span>MySQL</span>
+        <span>PostgreSQL</span>
+        <span>MongoDB</span>
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="skill-box">
+
+      <div class="skill-header">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <h3>Tools & Platforms</h3>
+      </div>
+
+      <div class="skill-tags">
+        <span>Git</span>
+        <span>GitHub</span>
+        <span>Linux</span>
+        <span>Kali</span>
+        <span>Xampp</span>
+        <span>Discord</span>
+        <span>VS Code</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+
+  <h2 class="section-title">Featured Projects</h2>
+
+  <div class="grid">
+
+    <div class="card">
+    <i class="fa-solid fa-globe"></i>
+    <h3>Portfolio Website</h3>
+    <p>
+        Languages: Html, Css, JavaScript
+      </p>
+    <label>Description: </label>
+    <textarea readonly>
+      My Portfolio Website is a modern and responsive personal website designed to showcase my projects, skills, experience, and achievements in a clean and professional way. It features an interactive user interface, smooth animations, project previews, and detailed sections about my background as a developer. The website was built to strengthen my online presence, highlight my technical abilities, and provide visitors with an easy way to explore my work and contact me.
+
+    </textarea>
+    <a href="#" class="card-btn">Check Out</a>
+  </div>
+
+
+    <div class="card">
+      <i class="fa-solid fa-code"></i>
+      <h3>Funcaptcha Solver</h3>
+      <p>
+        Languages: Python
+      </p>
+      <textarea readonly>
+      Funcaptcha Solver is a Python-based automation project designed to interact with and solve FunCaptcha challenges efficiently. The project demonstrates skills in Python programming, web automation, request handling, browser interaction, and problem-solving. It was built to explore captcha-solving workflows, improve automation techniques, and understand how modern verification systems operate within web applications.
+
+    </textarea>
+    <a href="https://github.com/jiroxs/FunCaptcha-Solver" target="_blank" class="card-btn">Check Out</a>
+    </div>
+
+    <div class="card">
+      <i class="fa-solid fa-code"></i>
+      <h3>Funcaptcha Iframe</h3>
+      <p>
+        Languages: TypeScript, Html, JavaScript
+      </p>
+      <textarea readonly>
+      Funcaptcha Iframe is a TypeScript-based project focused on handling and embedding FunCaptcha verification within an iframe environment. It demonstrates how to securely load, manage, and interact with captcha frames in modern web applications while maintaining proper structure and responsiveness. The project highlights skills in TypeScript, DOM manipulation, iframe integration, and frontend security practices, with an emphasis on understanding how embedded verification systems function in real-world web workflows.
+
+    </textarea>
+    <a href="https://github.com/jiroxs/Arkoselabs" target="_blank" class="card-btn">Check Out</a>
+    </div>
+
+    <div class="card">
+      <i class="fa-solid fa-code"></i>
+      <h3>Roblox Blox Fruit Script</h3>
+      <p>
+        Languages: LUAU / Roblox LUA
+      </p>
+      <textarea readonly>
+      The Roblox Blox Fruit Script is a project developed using Luau, Roblox’s scripting language derived from Lua. The script is designed to automate and assist with various gameplay tasks in the Roblox game Blox Fruits, such as combat, quest farming, item collection, and other in-game activities.
+
+    </textarea>
+    <a href="https://github.com/jiroxs/MCX-HUB" target="_blank" class="card-btn">Check Out</a>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- faqs -->
+<section id="faqs">
+
+  <h2 class="section-title">FAQs</h2>
+
+  <div class="grid">
+
+    <div class="accordion">
+      
+      <div class="faqs">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>What technologies do you use for your projects?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="accordion-body">
+            <p>
+              I primarily use HTML, CSS, JavaScript, TypeScript, and Python, along with modern frameworks and tools depending on the project requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Are you open for freelance work or job opportunities?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="accordion-body">
+            <p>
+              Yes, I am open to freelance projects and full-time opportunities where I can contribute and grow as a developer.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>What type of projects do you usually build?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="accordion-body">
+            <p>
+              I build web applications, automation tools, APIs, and interactive frontend projects, often focused on functionality and user experience.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>What is your strongest skill?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="accordion-body">
+            <p>
+              My strongest skills include backend development, problem-solving, and building automation scripts using Python.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>How can I contact you?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="accordion-body">
+            <p>
+              You can contact me through the contact form on my portfolio website or via email/social links provided.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Do you update your portfolio regularly?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="accordion-body">
+            <p>
+              Yes, I continuously update my portfolio whenever I complete new projects or improve existing ones.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Can you customize projects for clients?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="accordion-body">
+            <p>
+              Yes, I can modify or build projects based on specific requirements depending on the scope and complexity.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+  <h2 class="section-title">Contact</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <i class="fa-solid fa-envelope"></i>
+      <h3>Email</h3>
+      <p>jirowz.dev@proton.me</p>
+    </div>
+
+    <div class="card">
+      <i class="fa-brands fa-linkedin"></i>
+      <h3>LinkedIn</h3>
+      <p>testing.com/jirows</p>
+    </div>
+
+    <div class="card">
+      <i class="fa-brands fa-github"></i>
+      <h3>GitHub</h3>
+      <p>https://github.com/jiroxs<p>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Jirowz — All Rights Reserved
+</footer>
+
+<script>
+
+/* =========================================
+   MOBILE NAV
+========================================= */
+const menuBtn =
+  document.getElementById("menuBtn");
+
+const nav =
+  document.getElementById("nav");
+
+menuBtn.onclick = () => {
+  nav.classList.toggle("active");
+};
+
+/* =========================================
+   NAVBAR SCROLL EFFECT
+========================================= */
+const header =
+  document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+  if(window.scrollY > 50){
+    header.classList.add("scrolled");
+  }else{
+    header.classList.remove("scrolled");
+  }
+
+});
+
+/* =========================================
+   ACTIVE NAV LINKS
+========================================= */
+const sections =
+  document.querySelectorAll("section");
+
+const navLinks =
+  document.querySelectorAll("nav a");
+
+function updateActiveLink(){
+
+  let currentSection = "";
+
+  sections.forEach(section => {
+
+    const sectionTop =
+      section.offsetTop - 150;
+
+    const sectionHeight =
+      section.offsetHeight;
+
+    if(
+      window.scrollY >= sectionTop &&
+      window.scrollY < sectionTop + sectionHeight
+    ){
+      currentSection =
+        section.getAttribute("id");
+    }
+
+  });
+
+  /* FIX CONTACT SECTION */
+  if(
+    window.innerHeight + window.scrollY >=
+    document.body.offsetHeight - 50
+  ){
+    currentSection = "contact";
+  }
+
+  navLinks.forEach(link => {
+
+    link.classList.remove("active");
+
+    if(
+      link.getAttribute("href") ===
+      `#${currentSection}`
+    ){
+      link.classList.add("active");
+    }
+
+  });
+
+}
+
+window.addEventListener(
+  "scroll",
+  updateActiveLink
+);
+
+updateActiveLink();
+
+/* =========================================
+   CLOSE MOBILE NAV
+========================================= */
+navLinks.forEach(link => {
+
+  link.addEventListener("click", () => {
+    nav.classList.remove("active");
+  });
+
+});
+
+/* =========================================
+   TYPING EFFECT
+========================================= */
+const typing =
+  document.getElementById("typing");
+
+const texts = [
+  "Full-Stack Web Developer",
+  "Backend Developer",
+  "Frontend Developer",
+  "UI Engineer",
+  "Creative Coder"
+];
+
+let index = 0;
+let char = 0;
+let deleting = false;
+
+function type(){
+
+  const current = texts[index];
+
+  if(!deleting){
+
+    typing.innerHTML =
+      current.substring(0, char++);
+
+    if(char > current.length){
+
+      deleting = true;
+
+      setTimeout(type, 1200);
+
+      return;
+    }
+
+  }else{
+
+    typing.innerHTML =
+      current.substring(0, char--);
+
+    if(char < 0){
+
+      deleting = false;
+
+      index =
+        (index + 1) % texts.length;
+    }
+
+  }
+
+  setTimeout(type, deleting ? 45 : 90);
+}
+
+type();
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+const cards =
+  document.querySelectorAll(".card");
+
+function reveal(){
+
+  cards.forEach(card => {
+
+    const top =
+      card.getBoundingClientRect().top;
+
+    if(top < window.innerHeight - 100){
+      card.classList.add("show");
+    }
+
+  });
+
+}
+
+window.addEventListener("scroll", reveal);
+
+reveal();
+
+/* =========================================
+   PARTICLES
+========================================= */
+const canvas =
+  document.getElementById("particles");
+
+const ctx =
+  canvas.getContext("2d");
+
+let particles = [];
+
+function resize(){
+
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+}
+
+window.addEventListener("resize", resize);
+
+resize();
+
+function createParticles(){
+
+  particles = [];
+
+  const amount =
+    innerWidth < 768 ? 60 : 140;
+
+  for(let i=0;i<amount;i++){
+
+    particles.push({
+
+      x:Math.random()*canvas.width,
+      y:Math.random()*canvas.height,
+
+      size:Math.random()*2+.5,
+
+      speed:Math.random()*.7+.2
+
+    });
+
+  }
+
+}
+
+createParticles();
+
+function animate(){
+
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  ctx.fillStyle = "#4fc3ff";
+
+  particles.forEach(p => {
+
+    ctx.beginPath();
+
+    ctx.arc(
+      p.x,
+      p.y,
+      p.size,
+      0,
+      Math.PI*2
+    );
+
+    ctx.fill();
+
+    p.y -= p.speed;
+
+    if(p.y < -5){
+
+      p.y = canvas.height + 5;
+
+      p.x =
+        Math.random()*canvas.width;
+    }
+
+  });
+
+  requestAnimationFrame(animate);
+}
+
+createParticles();
+animate();
+
+document.querySelectorAll(".accordion-header").forEach(header => {
+  header.addEventListener("click", () => {
+    const item = header.parentElement;
+    item.classList.toggle("active");
+  });
+});
+
+
+</script>
+
+</body>
+</html>
